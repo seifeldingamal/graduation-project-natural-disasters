@@ -1,0 +1,58 @@
+<!DOCTYPE Html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Prediction">
+    <title>Prediction Page</title>
+</head>
+
+<body>
+    <div>
+        <div id="Header">
+            <a href="HomePage.html">
+                <img src="icon1.png">
+            </a>
+            <h1>Natural Disasters</h1>
+        </div>
+        <hr>
+        <div id="Left-Sidebar">
+            <form action="StatPage.html">
+                <button>Statistics</button>
+            </form>
+            <br>
+            <form action="PredictPage.html">
+                <button disabled>Prediction</button>
+            </form>
+            <br>
+            <form action="ProcessPage.html">
+                <button>Analysis<br>Process</button>
+            </form>
+        </div>
+        <hr>
+        <div id="Right-Sidebar">
+            <form>
+                <select id="Country">
+                    <option>Predict From Selected</option>
+                    <optgroup label="Country">
+                        <option value="China">China</option>
+                        <option value="Jaban">Jaban</option>
+                        <option value="Brazil">Brazil</option>
+                        <option value="Australia">Australia</option>
+                    </optgroup>
+                </select>
+            </form>
+            <br>
+            <form action="PredictPage.html">
+                <button>Reset</button>
+            </form>
+        </div>
+        <hr>
+        <div id="Main">
+            <img src="untitled.png" alt="Prediction Map" width="500" height="400">
+        </div>
+    </div>
+</body>
+
+</html>

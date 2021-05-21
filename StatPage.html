@@ -1,0 +1,70 @@
+<!DOCTYPE Html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Statistics">
+    <title>Stat Page</title>
+</head>
+
+<body>
+    <div>
+        <div id="Header">
+            <a href="HomePage.html">
+                <img src="icon1.png">
+            </a>
+            <h1>Natural Disasters</h1>
+        </div>
+        <hr>
+        <div id="Left-Sidebar">
+            <form action="StatPage.html">
+                <button disabled>Statistics</button>
+            </form>
+            <br>
+            <form action="PredictPage.html">
+                <button>Prediction</button>
+            </form>
+            <br>
+            <form action="ProcessPage.html">
+                <button>Analysis<br>Process</button>
+            </form>
+        </div>
+        <hr>
+        <div id="Right-Sidebar">
+            <h3>Determine Period</h3>
+            <form>
+                <input type="radio" id="RD1" name="Period" value="last 30 Days">
+                <label for="RD1">last 30 Days</label><br>
+                <input type="radio" id="RD2" name="Period" value="last 3 Months">
+                <label for="RD1">last 3 Months</label><br>
+                <input type="radio" id="RD3" name="Period" value="last 3 Years">
+                <label for="RD1">last 3 Years</label><br>
+            </form>
+            <br>
+            <form>
+                <select id="Period">
+                    <option>Select Specificly</option>
+                    <option value="1980 - 1990">1980 - 1990</option>
+                    <option value="1990 - 2000">1990 - 2000</option>
+                    <option value="2000 - 2010">2000 - 2010</option>
+                    <option value="2010 - 2020">2010 - 2020</option>
+                </select>
+            </form>
+        </div>
+        <hr>
+        <div id="Main">
+            <img src="D--FfycWsAAeybe.jpg" alt="Interactive Map" width="500" height="400">
+            <figure>
+                <img src="Graph_of_largest_earthquakes_1906-2005.png" alt="Circular Sector" width="200" height="200">
+                <figcaption>Graph of largest earthquakes at the period<br>(1906-2005)</figcaption>
+            </figure>
+            <figure>
+                <img src="unnamed.gif" alt="Histogram" width="200" height="200">
+                <figcaption>Number of Earthquakes by Year</figcaption>
+            </figure>
+        </div>
+    </div>
+</body>
+
+</html>
