@@ -1,22 +1,11 @@
 const express = require('express');
-const Event = require('../../models/Event');
+const eventController = require('../../controllers/eventController');
 
 const router = express.Router();
 
 // Get Events
-router.get('/', async (req, res) => {
-    const events = await Event.find();
-    res.send(events);
-});
+router.get('/', eventController.eventGet);
 
-router.post("/", async (req, res) => {
-	const event = new Event({
-        long: req.body.long,
-        lat: req.body.lat,
-        mag: req.body.mag
-    });
-	await event.save();
-	res.send(event);
-});
+router.post('/', eventController.eventPost);
 
 module.exports = router;
