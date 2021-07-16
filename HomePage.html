@@ -4,41 +4,39 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="welcome" />
-    <link rel="stylesheet" href="css/sidebar.css">
-    <script src="js/sidebar.js"></script> 
+    <link rel="stylesheet" href="css/style.css">   
     <title>Home page</title>
   </head>
 
   <body>
-    <div id="Header">
-      <h1>Natural<br />Disaster</h1>
-    </div>
-    <hr />
-    <!---------------------------------------------------->
+    <div id="Body">  
+        <div id="Header">
+            <div>
+                <h1>Natural<br />Disaster</h1>
+            </div>
+        </div>
 
-    <div id="mySidebar" class="sidebar">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-      <a href="StatPage.html"
-        >View Disaster<br />And<br />
-        Their Statistics Predict Future<br
-      /></a>
-      <a href="PredictPage.html">Shockwave Radius </a>
-      <a href="ProcessPage.html">Analysis Process </a>
+        <div id="main3">
+             <form action="StatPage.html">
+                <button>View Disaster <br>And<br> Their Statistics</button>
+             </form>
 
-    </div>
+             <form action="PredictPage.html">
+                <button>Predict Future<br>Shockwave Radius</button>
+             </form>
+         </div>
 
-    <!---------------------------------------------------->
-    <div id="main">
-      <button class="openbtn" onclick="openNav()">&#9776; Open Sidebar</button>
-    </div>
-    <hr />
-    <div id="Footer">
-      <b>Welcome to our system</b>
-      <p>
-        Being able to predict Earthquakes could allow us <br />
-        to better protect human life and property.
-      </p>
-    </div>
+         <div id="Footer">
+
+            <b>Welcome to our system</b>
+
+            <p>
+              Being able to predict Earthquakes could allow us <br />                                                  to better protect human life and property.
+            </p>
+
+        </div>
+    </div>    
+
   </body>
   
 </html>

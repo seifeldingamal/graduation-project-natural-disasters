@@ -5,33 +5,40 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Statistics">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/sidebar.js"></script>
     <title>Stat Page</title>
 </head>
 
-<body>
+<body id="Body1">
     <div>
-        <div id="Header">
+        
+        <div id="Header1">
             <a href="HomePage.html">
-                <img src="icon1.png">
-            </a>
-            <h1>Natural Disasters</h1>
+                <h1>Natural<br/>Disasters</h1>
+            </a>    
         </div>
-        <hr>
-        <div id="Left-Sidebar">
-            <form action="StatPage.html">
-                <button disabled>Statistics</button>
-            </form>
-            <br>
-            <form action="PredictPage.html">
-                <button>Prediction</button>
-            </form>
-            <br>
-            <form action="ProcessPage.html">
-                <button>Analysis<br>Process</button>
-            </form>
+        
+        <!---------------------------------------------------->
+        
+        <div id="mySidebar" class="sidebar">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a href="StatPage.html">
+              View Disaster<br/>And<br/>Their Statistics 
+          </a>
+          <a href="PredictPage.html">Predict Future<br/>Shockwave Radius </a>
+          <a href="ProcessPage.html">Analysis<br/>Process </a>
+
         </div>
-        <hr>
-        <div id="Right-Sidebar">
+        
+        <div id="main">
+          <button class="openbtn" onclick="openNav()">&#9776;</button>
+        </div>
+        
+        <!---------------------------------------------------->
+        
+        <div id="Right-navbar1">
             <h3>Determine Period</h3>
             <form>
                 <input type="radio" id="RD1" name="Period" value="last 30 Days">
@@ -52,17 +59,21 @@
                 </select>
             </form>
         </div>
-        <hr>
-        <div id="Main">
-            <img src="D--FfycWsAAeybe.jpg" alt="Interactive Map" width="500" height="400">
+        
+        <!---------------------------------------------------->
+        
+        <div id="Main1">
+            <img src="D--FfycWsAAeybe.jpg" alt="Interactive Map">
+          <div>
             <figure>
-                <img src="Graph_of_largest_earthquakes_1906-2005.png" alt="Circular Sector" width="200" height="200">
+                <img src="Graph_of_largest_earthquakes_1906-2005.png" alt="Circular Sector">
                 <figcaption>Graph of largest earthquakes at the period<br>(1906-2005)</figcaption>
             </figure>
             <figure>
-                <img src="unnamed.gif" alt="Histogram" width="200" height="200">
+                <img src="unnamed.gif" alt="Histogram">
                 <figcaption>Number of Earthquakes by Year</figcaption>
             </figure>
+          </div>
         </div>
     </div>
 </body>
