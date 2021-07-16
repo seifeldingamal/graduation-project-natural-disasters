@@ -1,58 +1,74 @@
-<!DOCTYPE Html>
+<!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Prediction" />
+    <link href='leaflet/leaflet.css' rel='stylesheet' />
+    <link rel="stylesheet" href="css/map.css"/>
+    <link rel="stylesheet" href="css/style.css"/>  
+    <link rel="stylesheet" href="css/sidebar.css">
+    <script src="js/sidebar.js"></script>
+    <script src='leaflet/leaflet.js'></script>
+    <script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
+   <!--D3 cdn-->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Prediction">
     <title>Prediction Page</title>
-</head>
+  </head>
 
-<body>
+  <body id="Body2">
     <div>
-        <div id="Header">
-            <a href="HomePage.html">
-                <img src="icon1.png">
-            </a>
-            <h1>Natural Disasters</h1>
-        </div>
-        <hr>
-        <div id="Left-Sidebar">
-            <form action="StatPage.html">
-                <button>Statistics</button>
-            </form>
-            <br>
-            <form action="PredictPage.html">
-                <button disabled>Prediction</button>
-            </form>
-            <br>
-            <form action="ProcessPage.html">
-                <button>Analysis<br>Process</button>
-            </form>
-        </div>
-        <hr>
-        <div id="Right-Sidebar">
-            <form>
-                <select id="Country">
-                    <option>Predict From Selected</option>
-                    <optgroup label="Country">
-                        <option value="China">China</option>
-                        <option value="Jaban">Jaban</option>
-                        <option value="Brazil">Brazil</option>
-                        <option value="Australia">Australia</option>
-                    </optgroup>
-                </select>
-            </form>
-            <br>
-            <form action="PredictPage.html">
-                <button>Reset</button>
-            </form>
-        </div>
-        <hr>
-        <div id="Main">
-            <img src="untitled.png" alt="Prediction Map" width="500" height="400">
-        </div>
-    </div>
-</body>
+      <div id="Header2">
+          <a href="HomePage.html">
+              <h1>Natural<br/>Disasters</h1>
+          </a>      
+      </div>
+      
+      <!---------------------------------------------------->
 
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a href="StatPage.html">
+          View Disaster<br/>And<br/>Their Statistics 
+      </a>
+      <a href="PredictPage.html">Predict Future<br/>Shockwave Radius </a>
+      <a href="ProcessPage.html">Analysis Process </a>
+
+    </div>
+
+    <!---------------------------------------------------->
+    <div id="main">
+      <button class="openbtn" onclick="openNav()">&#9776;</button>
+    </div>
+      
+      <div id="Right-navbar2">
+        <form>
+          <select id="Country" title="Predict From Selected">
+            <option>Predict From Selected</option>
+            <optgroup label="Country">
+              <option value="China">China</option>
+              <option value="Jaban">Jaban</option>
+              <option value="Brazil">Brazil</option>
+              <option value="Australia">Australia</option>
+            </optgroup>
+          </select>
+        </form>
+        <br />
+        <form action="PredictPage.html">
+          <button>Reset</button>
+        </form>
+      </div>
+      
+      <div id="map">
+
+      </div>
+      
+    </div>
+    <!-- API key -->
+    <script type="text/javascript" src="js/config.js"></script>
+    <!-- Our JS -->
+    <script type="text/javascript" src="js/map.js"></script>
+  </body>
 </html>
