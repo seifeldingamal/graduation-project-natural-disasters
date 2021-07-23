@@ -1,7 +1,7 @@
 const Event = require('../models/Event');
 
 module.exports.eventGet = async (req, res) => {
-    const events = await Event.find();
+    const events = await Event.find({ year: { $gte: 2021} });
     res.send(events);
 }
 

@@ -5,7 +5,7 @@ const router = express.Router();
 
 // Get Events
 router.get('/', async (req, res) => {
-    const events = await Event.find();
+    const events = await Event.find({}, 'id latitude longitude mag depth day month year country -_id').limit(15000)
     res.send(events);
 });
 
