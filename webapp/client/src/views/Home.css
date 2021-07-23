@@ -1,4 +1,4 @@
-#Body
+.Home #Body
 {
     position: relative;
     background-color: #fff;
@@ -6,7 +6,7 @@
     
 }
 
-#Header
+.Home #Header
 {
     top: 0;
     left: 0;
@@ -20,7 +20,7 @@
     border-radius: 0 0 660px 0
 }
 
-#Header div
+.Home #Header div
 {
     font-size: 70px;
     font-weight: bold;
@@ -28,7 +28,7 @@
     line-height: 120px
 }
 
-#main3
+.Home #main3
 {
     overflow: hidden;
     width: 340px;
@@ -41,12 +41,12 @@
     grid-template-columns: 1fr
 }
 
-#main3 .globe 
+.Home #main3 .globe 
 {
     margin: 10px 0
 }
 
-#main3 .button
+.Home #main3 .button
 {
     background-color: #6C63FF;
     color: white;
@@ -64,12 +64,12 @@
     text-decoration: none;
 }
 
-#main3 .button:hover
+.Home #main3 .button:hover
 {
     background-color: #4A46CB
 }
 
-#Footer
+.Home #Footer
 {
     position: absolute;
     overflow: hidden;
@@ -82,7 +82,7 @@
     grid-template-columns: 1fr
 }
 
-#Footer b
+.Home #Footer b
 {
     width: 100%;
     text-align: center;
@@ -91,7 +91,7 @@
     color: #111
 }
 
-#Footer p
+.Home #Footer p
 {
     margin-top: 5px;
     width: 100%;

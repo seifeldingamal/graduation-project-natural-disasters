@@ -8,13 +8,13 @@
 --secs: 0.4s;
 }
 
-#layout {
+.Stats #layout {
 text-decoration: none;
 display: flex;
 overflow: hidden;
 }
 
-#layout .header {
+.Stats #layout .header {
     font-size: 26px;
     background-color: var(--theme);
     position: relative;
@@ -22,7 +22,7 @@ overflow: hidden;
     text-align: center;
     }
 
-#layout .header .button {
+.Stats #layout .header .button {
     line-height: 35px;
     font-size: 34px;
     font-family: Arabic Typesetting;
@@ -30,57 +30,61 @@ overflow: hidden;
     text-decoration: none
 }
 
-#layout .header .button:hover {
+.Stats #layout .header .button:hover {
     color: var(--hover)
 }
 
-#layout .header .title {
+.Stats #layout .header .title {
 position: absolute;
 left: 0;
 right: 0;
 }
 
-#layout .content {
+.Stats #layout .content {
 overflow: auto;
 box-sizing: border-box;
 height: calc(100vh - var(--header-height));
 padding: 1rem;
 }
 
-#main {
+.Stats #main {
 background: var(--bg-main);
 flex-grow: 1;
 }
-#main .header {
+
+.Stats #main .header {
     background-color: var(--theme);
 }
 
 @media (orientation: landscape) {
-#main .header .title {
+.Stats #main .header .title {
     transition: left var(--secs), right var(--secs);
 }
 
-#main .header .title.left-closed {
+.Stats #main .header .title.left-closed {
     left: var(--header-height);
 }
 
-#main .header .title.right-closed {
+.Stats #main .header .title.right-closed {
     right: var(--header-height);
 }
 }
 
-#left, #right {
+.Stats #left, 
+.Stats #right {
 transition: width var(--secs);
 width: 0;
 }
 
 @media (orientation: landscape) {
-#left.open, #right.open {
+.Stats #left.open, 
+.Stats #right.open {
     width: calc(1% * var(--landscape-width));
 }
 }
 
-#left .icon, #right .icon {
+.Stats #left .icon, 
+.Stats #right .icon {
     position: fixed;
     z-index: 10;
     width: var(--header-height);
@@ -92,49 +96,54 @@ width: 0;
     cursor: pointer;
 }
 
-#left .sidebar .header, #right .sidebar .header {
+.Stats #left .sidebar .header, 
+.Stats #right .sidebar .header {
     font-size: 18px;
     line-height: var(--header-height);
 }
 
-#left .sidebar, #right .sidebar {
+.Stats #left .sidebar, 
+.Stats #right .sidebar {
     transition: transform var(--secs);
 }
 
 @media (orientation: portrait) {
-#left .sidebar, #right .sidebar {
+.Stats #left .sidebar, 
+.Stats #right .sidebar {
     width: var(--portrait-width);
 
 }
 }
 
 @media (orientation: landscape) {
-#left .sidebar, #right .sidebar {
+.Stats #left .sidebar, 
+.Stats #right .sidebar {
     width: calc(1vw * var(--landscape-width));
 }
 }
 
-#left .sidebar .header, #right .sidebar .header {
+.Stats #left .sidebar .header, 
+.Stats #right .sidebar .header {
 width: calc(100% - var(--header-height));
 }
 
-#left {
+.Stats #left {
 z-index: 5;
 }
 
-#left .sidebar {
+.Stats #left .sidebar {
 background: var(--theme);
 }
 
-#left .sidebar.closed {
+.Stats #left .sidebar.closed {
 transform: translateX(-100%);
 }
 
-#left .sidebar .header {
+.Stats #left .sidebar .header {
 left: var(--header-height);
 }
 
-#left .sidebar .content .button {
+.Stats #left .sidebar .content .button {
     padding: 8px 8px 8px 32px;
     font-size: 25px;
     color: var(--bg-main);
@@ -143,39 +152,39 @@ left: var(--header-height);
     text-decoration: none;
 }
 
-#left .sidebar .content .button:hover {
+.Stats #left .sidebar .content .button:hover {
     color: var(--hover)
 }
 
-#right .icon {
+.Stats #right .icon {
 right: 0;
 }
 
-#right .sidebar {
+.Stats #right .sidebar {
 background: var(--theme);
 }
 
 @media (orientation: portrait) {
-#right .sidebar.open {
+.Stats #right .sidebar.open {
     transform: translateX(-100%);
 }
 }
 
-#right .sidebar .content h3
+.Stats #right .sidebar .content h3
 {
     font-family: Arabic Typesetting;
     font-size: 34px;
     margin: -3px
 }
 
-#right .sidebar .content .form-input
+.Stats #right .sidebar .content .form-input
 {
     text-align: left;
     margin-top: 10px;
     margin-bottom: 25px;
 }
 
-#right .sidebar .content .form-input input
+.Stats #right .sidebar .content .form-input input
 {   
     margin-bottom: 25px;
     width: 20px;
@@ -184,25 +193,25 @@ background: var(--theme);
     cursor: pointer
 }
 
-#right .sidebar .content .form-input input:hover
+.Stats #right .sidebar .content .form-input input:hover
 {
     background-color:var(--hover);
     color: var(--bg-main)
 }
 
-#right .sidebar .content .form-input label
+.Stats #right .sidebar .content .form-input label
 {
     font-family: Arabic Typesetting;
     font-size: 30px;
     line-height: 20px
 }
 
-#right .sidebar .content .form-select
+.Stats #right .sidebar .content .form-select
 {
     margin-top: 10px
 }
 
-#right .sidebar .content .form-select select
+.Stats #right .sidebar .content .form-select select
 {
     width: 150px;
     height: 30px;
