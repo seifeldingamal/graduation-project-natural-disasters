@@ -8,13 +8,13 @@
     --secs: 0.4s;
     }
 
-.Predict #layout {
+.Analysis #layout {
 text-decoration: none;
 display: flex;
 overflow: hidden;
 }
 
-.Predict #layout .header {
+.Analysis #layout .header {
     font-size: 26px;
     background-color: var(--theme);
     position: relative;
@@ -22,7 +22,7 @@ overflow: hidden;
     text-align: center;
     }
 
-.Predict #layout .header .button {
+.Analysis #layout .header .button {
     line-height: 35px;
     font-size: 34px;
     font-family: Arabic Typesetting;
@@ -30,52 +30,52 @@ overflow: hidden;
     text-decoration: none
 }
 
-.Predict #layout .header .button:hover {
+.Analysis #layout .header .button:hover {
     color: var(--hover)
 }
 
-.Predict #layout .header .title {
+.Analysis #layout .header .title {
 position: absolute;
 left: 0;
 }
 
-.Predict #layout .content {
+.Analysis #layout .content {
 overflow: auto;
 box-sizing: border-box;
 height: calc(100vh - var(--header-height));
 padding: 1rem;
 }
 
-.Predict #main {
+.Analysis #main {
 background: var(--bg-main);
 flex-grow: 1;
 }
-.Predict #main .header {
+.Analysis #main .header {
     background-color: var(--theme);
 }
 
 @media (orientation: landscape) {
-.Predict #main .header .title {
+.Analysis #main .header .title {
     transition: left var(--secs);
 }
 
-.Predict #main .header .title.left-closed {
+.Analysis #main .header .title.left-closed {
     left: var(--header-height);
 }
 }
 
-.Predict #left {
+.Analysis #left {
 transition: width var(--secs);
 width: 0;
 }
 
 @media (orientation: landscape) {
-.Predict #left.open {
+.Analysis #left.open {
     width: calc(1% * var(--landscape-width));
 }
 }
 
-.Predict #left .icon {
+.Analysis #left .icon {
     position: fixed;
     z-index: 10;
     width: var(--header-height);
@@ -87,49 +87,49 @@ width: 0;
     cursor: pointer;
 }
 
-.Predict #left .sidebar .header {
+.Analysis #left .sidebar .header {
     font-size: 18px;
     line-height: var(--header-height);
 }
 
-.Predict #left .sidebar {
+.Analysis #left .sidebar {
     transition: transform var(--secs);
 }
 
 @media (orientation: portrait) {
-.Predict #left .sidebar {
+.Analysis #left .sidebar {
     width: var(--portrait-width);
 
 }
 }
 
 @media (orientation: landscape) {
-.Predict #left .sidebar {
+.Analysis #left .sidebar {
     width: calc(1vw * var(--landscape-width));
 }
 }
 
-.Predict #left .sidebar .header {
+.Analysis #left .sidebar .header {
 width: calc(100% - var(--header-height));
 }
 
-.Predict #left {
+.Analysis #left {
 z-index: 5;
 }
 
-.Predict #left .sidebar {
+.Analysis #left .sidebar {
 background: var(--theme);
 }
 
-.Predict #left .sidebar.closed {
+.Analysis #left .sidebar.closed {
 transform: translateX(-100%);
 }
 
-.Predict #left .sidebar .header {
+.Analysis #left .sidebar .header {
 left: var(--header-height);
 }
 
-.Predict #left .sidebar .content .button {
+.Analysis #left .sidebar .content .button {
     padding: 8px 8px 8px 32px;
     font-size: 25px;
     color: var(--bg-main);
@@ -138,6 +138,6 @@ left: var(--header-height);
     text-decoration: none;
 }
 
-.Predict #left .sidebar .content .button:hover {
+.Analysis #left .sidebar .content .button:hover {
     color: var(--hover)
 }
