@@ -1,0 +1,102 @@
+#Body
+{
+    position: relative;
+    background-color: #fff;
+    width: 100%;
+    
+}
+
+#Header
+{
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 796px;
+    height: 720px;
+    background-color: #6C63FF;
+    display: flex;
+    padding-top: 170px;
+    padding-left: 110px;
+    border-radius: 0 0 660px 0
+}
+
+#Header div
+{
+    font-size: 70px;
+    font-weight: bold;
+    color: white;
+    line-height: 120px
+}
+
+#main3
+{
+    overflow: hidden;
+    width: 340px;
+    height: 48%;
+    background-color: #fff;
+    position: absolute;
+    top: 16%;
+    left: 62%;
+    display: grid;
+    grid-template-columns: 1fr
+}
+
+#main3 .globe 
+{
+    margin: 10px 0
+}
+
+#main3 .button
+{
+    background-color: #6C63FF;
+    color: white;
+    font-size: 22px;
+    line-height: 27px;
+    text-align: center;
+    cursor: pointer;
+    width: 210px;
+    height: 60px;
+    outline: none;
+    border:none;
+    border-radius: 48px;
+    font-weight: 600;
+    margin: 10px 0;
+    text-decoration: none;
+}
+
+#main3 .button:hover
+{
+    background-color: #4A46CB
+}
+
+#Footer
+{
+    position: absolute;
+    overflow: hidden;
+    width: 600px;
+    height: 190px;
+    background-color: #fff;
+    top: 78%;
+    left: 55%;
+    display: grid;
+    grid-template-columns: 1fr
+}
+
+#Footer b
+{
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    font-family: Segoe UI;
+    color: #111
+}
+
+#Footer p
+{
+    margin-top: 5px;
+    width: 100%;
+    font-size: 26px;
+    color: darkgray;
+    font-family: Segoe UI;
+    text-align: center
+}
