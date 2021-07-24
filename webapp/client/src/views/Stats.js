@@ -30,38 +30,35 @@ class Stats extends Component {
         let rightOpen = this.state.rightOpen ? 'open' : 'closed';
         
         return (
-            <div id="layout">
+            <div id="layout1">
                 <div id='left' className={leftOpen} >
-                    <div className='icon'
+                    <div className='icon1'
                         onClick={this.toggleSidebar} >
                         &equiv;
                     </div>
                     <div className={`sidebar ${leftOpen}`} >
-                        <div className='header'>
-                            <h3 className='title'>
+                        <div className='header1'>
+                            <h3 className='title1'>
                                 Navigation
                             </h3>
                         </div>
-                        <div className='content'>
+                        <div className='content1'>
                                 <Link 
                                     to='/predict'
-                                    className='button'
+                                    className='button1'
                                 ><h5>Predict Future<br/>Shockwave Radius</h5></Link>                
                                 <Link 
                                     to='/analysis'
-                                    className='button'
+                                    className='button1'
                                 ><h5>Analysis<br/>Process</h5></Link>
                         </div>
                     </div>
                 </div>
-                <div id='main'>
-                    <div className="header">
-                        <Link 
-                            to='/'
-                            className='button'
-                        >
+                <div id='main1'>
+                    <div className="header1">
+                        <Link to='/'className='button1'>
                             <h3 className={`
-                                title
+                                title1
                                 ${'left-' + leftOpen}
                                 ${'right-' + rightOpen}
                             `}>
@@ -69,7 +66,7 @@ class Stats extends Component {
                             </h3>
                         </Link>
                     </div>
-                    <div className="content">
+                    <div className="content1">
                         {this.state.events.length > 0?
                         <MapComp events={this.state.events} />
                         : 'Data is loading'
@@ -87,17 +84,17 @@ class Stats extends Component {
                     </div>
                 </div>        
                 <div id='right' className={rightOpen} >
-                    <div className='icon'
+                    <div className='icon1'
                         onClick={this.toggleSidebar} >
                         &equiv;
                     </div>
                     <div className={`sidebar ${rightOpen}`} >
-                        <div className='header'>
-                            <h3 className='title'>
+                        <div className='header1'>
+                            <h3 className='title1'>
                             Filter Data
                             </h3>
                         </div>
-                        <div className='content'>
+                        <div className='content1'>
                             <h3>Determine Period</h3>
                             <form className='form-input'>
                                 <input type="radio" id="RD1" name="Period" value="last 30 Days"/>
