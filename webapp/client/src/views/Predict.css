@@ -15,7 +15,7 @@
     }
     
     #layout .header {
-        font-size: 26px;
+        padding: 10px;
         background-color: var(--theme);
         position: relative;
         height: var(--header-height);
@@ -23,15 +23,15 @@
         }
     
     #layout .header .button {
-        line-height: 35px;
-        font-size: 34px;
+        line-height: 30px;
+        font-size: 44px;
         font-family: Arabic Typesetting;
         color: white;
         text-decoration: none
     }
     
     #layout .header .button:hover {
-        color: var(--hover)
+        color: rgb(228, 226, 226)
     }
     
     #layout .header .title {
@@ -95,6 +95,7 @@
     #left .sidebar .header, #right .sidebar .header {
         font-size: 18px;
         line-height: var(--header-height);
+        text-align: center;
     }
     
     #left .sidebar, #right .sidebar {
