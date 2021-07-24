@@ -66,9 +66,7 @@ module.exports.SignUp = async (req, res) => {
             name: req.body.name, 
             username: req.body.username, 
             email: req.body.email, 
-            password: req.body.password, 
-            city: req.body.city, 
-            country: req.body.country 
+            password: req.body.password
         });
         const result = await user.save();
         const token = createToken(result._id);

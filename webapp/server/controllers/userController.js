@@ -10,8 +10,7 @@ module.exports.userPost = async (req, res) => {
         name: req.body.name,
         username: req.body.username,
         password: req.body.password,
-        email: req.body.email,
-        location: req.body.location
+        email: req.body.email
     });
 	await user.save();
 	res.send(user);

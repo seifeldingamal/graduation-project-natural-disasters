@@ -1,7 +1,7 @@
 const Event = require('../models/Event');
 
 module.exports.eventGet = async (req, res) => {
-    const events = await Event.find({ year: { $gte: 2021} });
+    const events = await Event.find({}, 'id latitude longitude mag depth day month year country -_id').limit(15000)
     res.send(events);
 }
 
