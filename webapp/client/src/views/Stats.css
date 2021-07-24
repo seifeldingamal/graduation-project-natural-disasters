@@ -8,64 +8,64 @@
 --secs: 0.4s;
 }
 
-.Stats #layout {
+#layout1 {
 text-decoration: none;
 display: flex;
 overflow: hidden;
 }
 
-.Stats #layout .header {
-    font-size: 26px;
+#layout1 .header1 {
+    padding: 10px;
     background-color: var(--theme);
     position: relative;
     height: var(--header-height);
     text-align: center;
     }
 
-.Stats #layout .header .button {
-    line-height: 35px;
-    font-size: 34px;
+#layout1 .header1 .button1 {
+    line-height: 30px;
+    font-size: 44px;
     font-family: Arabic Typesetting;
     color: white;
-    text-decoration: none
+    text-decoration: none;
 }
 
-.Stats #layout .header .button:hover {
-    color: var(--hover)
+#layout1 .header1 .button1:hover {
+    color: rgb(228, 226, 226)
 }
 
-.Stats #layout .header .title {
+#layout1 .header1 .title1 {
 position: absolute;
 left: 0;
 right: 0;
 }
 
-.Stats #layout .content {
+#layout1 .content1 {
 overflow: auto;
 box-sizing: border-box;
 height: calc(100vh - var(--header-height));
 padding: 1rem;
+z-index: 1;
 }
 
-.Stats #main {
+#main1 {
 background: var(--bg-main);
 flex-grow: 1;
 }
-
-.Stats #main .header {
+#main1 .header1 {
     background-color: var(--theme);
 }
 
 @media (orientation: landscape) {
-.Stats #main .header .title {
+#main1 .header1 .title1 {
     transition: left var(--secs), right var(--secs);
 }
 
-.Stats #main .header .title.left-closed {
+#main1 .header1 .title1.left-closed {
     left: var(--header-height);
 }
 
-.Stats #main .header .title.right-closed {
+#main1 .header1 .title1.right-closed {
     right: var(--header-height);
 }
 }
@@ -83,8 +83,7 @@ width: 0;
 }
 }
 
-.Stats #left .icon, 
-.Stats #right .icon {
+#left .icon1, #right .icon1 {
     position: fixed;
     z-index: 10;
     width: var(--header-height);
@@ -96,10 +95,10 @@ width: 0;
     cursor: pointer;
 }
 
-.Stats #left .sidebar .header, 
-.Stats #right .sidebar .header {
+#left .sidebar .header1, #right .sidebar .header1 {
     font-size: 18px;
     line-height: var(--header-height);
+    text-align: center;
 }
 
 .Stats #left .sidebar, 
@@ -127,12 +126,13 @@ width: 0;
 width: calc(100% - var(--header-height));
 }
 
-.Stats #left {
-z-index: 5;
+#left .icon1 {
+left: 0;
 }
 
 .Stats #left .sidebar {
 background: var(--theme);
+
 }
 
 .Stats #left .sidebar.closed {
@@ -143,7 +143,7 @@ transform: translateX(-100%);
 left: var(--header-height);
 }
 
-.Stats #left .sidebar .content .button {
+#left .sidebar .content1 .button1 {
     padding: 8px 8px 8px 32px;
     font-size: 25px;
     color: var(--bg-main);
@@ -152,11 +152,11 @@ left: var(--header-height);
     text-decoration: none;
 }
 
-.Stats #left .sidebar .content .button:hover {
+#left .sidebar .content1 .button1:hover {
     color: var(--hover)
 }
 
-.Stats #right .icon {
+#right .icon1 {
 right: 0;
 }
 
@@ -169,26 +169,32 @@ background: var(--theme);
     transform: translateX(-100%);
 }
 }
-
-.Stats #right .sidebar .content h3
+#right .sidebar .content1
+{
+    display: flex;
+    padding: 30px 40px;
+    align-content: flex-start;
+    flex-wrap: wrap
+}
+#right .sidebar .content1 h3
 {
     font-family: Arabic Typesetting;
     font-size: 34px;
     margin: -3px
 }
 
-.Stats #right .sidebar .content .form-input
+#right .sidebar .content1 .form-input
 {
     text-align: left;
     margin-top: 10px;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 }
 
-.Stats #right .sidebar .content .form-input input
+#right .sidebar .content1 .form-input input
 {   
-    margin-bottom: 25px;
-    width: 20px;
-    height: 20px;
+    margin-bottom: 7px;
+    width: 23px;
+    height: 18px;
     color: #111;
     cursor: pointer
 }
@@ -199,19 +205,19 @@ background: var(--theme);
     color: var(--bg-main)
 }
 
-.Stats #right .sidebar .content .form-input label
+#right .sidebar .content1 .form-input label
 {
     font-family: Arabic Typesetting;
     font-size: 30px;
     line-height: 20px
 }
 
-.Stats #right .sidebar .content .form-select
+#right .sidebar .content1 .form-select
 {
     margin-top: 10px
 }
 
-.Stats #right .sidebar .content .form-select select
+#right .sidebar .content1 .form-select select
 {
     width: 150px;
     height: 30px;
