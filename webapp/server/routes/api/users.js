@@ -1,10 +1,10 @@
 const express = require('express');
-const userController = require('../controllers/authController');
+const userController = require('../../controllers/userController');
 
 const router = express.Router();
 
 // Get Events
-router.get('/', userController.userGet);
+router.get('/', userController.usersGet);
 
 router.post('/', userController.userPost);
 

@@ -7,7 +7,8 @@ const cookieParser = require('cookie-parser');
 mongoose
     .connect('mongodb+srv://admin:admin@main.llv7l.mongodb.net/NaturalApp?retryWrites=true&w=majority', { 
         useNewUrlParser: true,
-        useUnifiedTopology: true 
+        useUnifiedTopology: true,
+        useCreateIndex: true
     }).then(() => {
         const app = express();
 
