@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './UserCheck.css';
 import back from './images/backImg.jpg';
 import front from './images/signup.jpg';
@@ -10,7 +10,11 @@ class UserCheck extends Component {
         username: '',
         email: '',
         password: '',
-        error:'',
+        usernameError:'',
+        emailError:'',
+        passwordError:'',
+        path: '',
+        redirect: false,
     }
 
     handleChange = (e) => {
@@ -20,24 +24,78 @@ class UserCheck extends Component {
         this.setState({ [name]: value });
     }
 
-    handleSubmit = (e) => {
+    handleSubmit = async (e) => {
         e.preventDefault();
+        this.setState({
+            usernameError: '',
+            passwordError: '',
+            emailError: '',
+        })
+
         if(e.nativeEvent.submitter.name === 'Login') {
             try {
-                return axios.post('http://localhost:5000/auth/login', {
+                const res = await axios.post('http://localhost:5000/auth/login', {
                     username: this.state.username,
                     password: this.state.password,
-                })
+                });
+
+                const data = res.data;
+
+                if (data.errors) {
+                    this.setState({
+                        usernameError: data.errors.username,
+                        passwordError: data.errors.password,
+                        emailError: data.errors.email,
+                    })
+                }
+
+                if (data.user) {
+                    this.setState({
+                        path: '/',
+                        redirect: true
+                    })
+                }
+
             } catch (error) {
                 console.log(error);
             }
         }
+
         if(e.nativeEvent.submitter.name === 'SignUp') {
-            console.log('Signup');
+            try {
+                const res = await axios.post('http://localhost:5000/auth/signup', {
+                    username: this.state.username,
+                    email: this.state.email,
+                    password: this.state.password,
+                });
+
+                const data = res.data;
+
+                if (data.errors) {
+                    this.setState({
+                        usernameError: data.errors.username,
+                        passwordError: data.errors.password,
+                        emailError: data.errors.email,
+                    })
+                }
+
+                if (data.user) {
+                    this.setState({
+                        path: '/usercheck',
+                        redirect: true
+                    })
+                }
+
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
 
     render() {
+        if (this.state.redirect) {
+            return <Redirect to="/" />
+        }
         return (
             <div className='UserCheck'>
                 <div className='body'>
@@ -59,7 +117,7 @@ class UserCheck extends Component {
                                 </div>
                             </div>
                         </div>
-                        <form onSubmit={this.handleSubmit} name="Login">
+                        <form onSubmit={this.handleSubmit}>
                             <div className="form-content">
                                 <div className="login-form">
                                     <div className="title">Login</div>
@@ -67,10 +125,12 @@ class UserCheck extends Component {
                                         <div className="input-box">
                                             <i className="fas fa-envelope"></i>
                                             <input type="text" placeholder="Username" onChange={this.handleChange} value={this.state.username} name="username" />
+                                            <div className="login-username error" value={this.state.usernameError} ></div>
                                         </div>
                                         <div className="input-box">
                                             <i className="fas fa-lock"></i>
                                             <input type="password" placeholder="Password" onChange={this.handleChange} value={this.state.password} name="password" />
+                                            <div className="login-password error"></div>
                                         </div>
                                         <div className="button input-box">
                                             <input type="submit" value="Login" name="Login"/>
@@ -84,14 +144,17 @@ class UserCheck extends Component {
                                         <div className="input-box">
                                             <i className="fas fa-user"></i>
                                             <input type="text" placeholder="UserName" onChange={this.handleChange} value={this.state.username} name="username" />
+                                            <div className="signup-username error"></div>
                                         </div>
                                         <div className="input-box">
                                             <i className="fas fa-envelope"></i>
                                             <input type="text" placeholder="Email" onChange={this.handleChange} value={this.state.email} name="email" />
+                                            <div className="signup-email error"></div>
                                         </div>
                                         <div className="input-box">
                                             <i className="fas fa-lock"></i>
                                             <input type="password" placeholder="Password" onChange={this.handleChange} value={this.state.password} name="password" />
+                                            <div className="signup-password error"></div>
                                         </div>
                                         <div className="button input-box">
                                             <input type="submit" value="Sign Up" name="SignUp" />

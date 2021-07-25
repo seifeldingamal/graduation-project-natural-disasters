@@ -36,6 +36,7 @@ function handleError(err) {
             errors[properties.path] = properties.message;
         });
     }
+
     return errors;
 }
 
@@ -50,8 +51,11 @@ module.exports.logIn = async (req, res) => {
         const {username, password} = req.body;
         const user = await User.login(username, password);
         const token = createToken(user._id);
-        res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
-        res.status(200).json({ user: user._id });
+        res.cookie('jwt', token, { httpOnly: true, maxAge: 3*24*60*60*1000 });
+        res.status(200).json({ 
+            user: user._id,
+            token: token
+        });
     } catch (err) {
         const errors = handleError(err);
         res.status(400).json({ errors })
@@ -72,7 +76,8 @@ module.exports.SignUp = async (req, res) => {
             maxAge: 3*24*60*60*1000
         })
         res.status(201).json({
-            user: result._id
+            user: result._id,
+            token: token
         });
 
     } catch (err) {
@@ -84,5 +89,5 @@ module.exports.SignUp = async (req, res) => {
 
 module.exports.LogOut = (req, res) => {
     res.cookie('jwt', '', { maxAge: 1 });
-    res.redirect('/');
+    res.redirect('/usercheck');
   }

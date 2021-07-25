@@ -14,7 +14,7 @@ class Home extends Component {
                         </div>
                         <div id="main3">
                             <div className='globe'>
-                                <img src={logo} className="App-logo" alt="logo" width="100" height="100"/>
+                                <img src={logo} className="App-logo" alt="logo" width="150" height="150"/>
                             </div>
                                 <Link 
                                     to='/stats'
@@ -35,7 +35,7 @@ class Home extends Component {
                         
                             <b>Welcome to our system</b>
                             <p>
-                            Being able to predict Earthquakes could allow us <br />                                                  to better protect human life and property.
+                            Being able to predict Earthquakes could allow us <br /> to better protect human life and property.
                             </p>
                         </div>
                         
