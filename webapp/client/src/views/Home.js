@@ -14,12 +14,12 @@ class Home extends Component {
                         </div>
                         <div id="main3">
                             <div className='globe'>
-                                <img src={logo} className="App-logo" alt="logo" />
+                                <img src={logo} className="App-logo" alt="logo" width="100" height="100"/>
                             </div>
                                 <Link 
                                     to='/stats'
                                     className='button'
-                                ><h5>View Disasters and Their Statistics</h5></Link>
+                                ><h5>View Disasters<br/> and <br/>Their Statistics</h5></Link>
                                 <Link 
                                     to='/predict'
                                     className='button'
@@ -32,38 +32,13 @@ class Home extends Component {
                                     to='/usercheck'
                                     className='button'
                                 >UserCheck</Link>
-                        </div>
-                        <div id="Footer">
+                        
                             <b>Welcome to our system</b>
                             <p>
                             Being able to predict Earthquakes could allow us <br />                                                  to better protect human life and property.
                             </p>
                         </div>
-                        <form action='/stats'className='button'>
-                            <button >
-                                <h5>View Disasters<br/>and<br/>Their Statistics</h5>
-                            </button>
-                        </form> 
-                        <form action='/predict'className='button'>   
-                            <button>
-                                <h5>Predict Future<br/>Shockwave Radius</h5>
-                            </button>
-                        </form>    
-                        <form action='/analysis'className='button'>                          
-                            <button>
-                                <h5>Analysis<br/>Process</h5>
-                            </button>
-                        </form> 
-                        <form action='/usercheck'className='button'>   
-                            <button >
-                                UserCheck
-                            </button>
-                        </form>    
-                    
-                        <b>Welcome to our system</b>
-                        <p>
-                        Being able to predict Earthquakes could allow us <br /> to better protect human life and property.
-                        </p>
+                        
                     </div>
                 </div>
             </div>

@@ -15,7 +15,7 @@ overflow: hidden;
 }
 
 .Analysis #layout .header {
-    font-size: 26px;
+    padding: 10px;
     background-color: var(--theme);
     position: relative;
     height: var(--header-height);
@@ -23,15 +23,16 @@ overflow: hidden;
     }
 
 .Analysis #layout .header .button {
-    line-height: 35px;
-    font-size: 34px;
+    line-height: 30px;
+    font-size: 44px;
     font-family: Arabic Typesetting;
     color: white;
-    text-decoration: none
+    text-decoration: none;
+    
 }
 
 .Analysis #layout .header .button:hover {
-    color: var(--hover)
+    color: rgb(228, 226, 226)
 }
 
 .Analysis #layout .header .title {
@@ -90,6 +91,7 @@ width: 0;
 .Analysis #left .sidebar .header {
     font-size: 18px;
     line-height: var(--header-height);
+    text-align: center;
 }
 
 .Analysis #left .sidebar {
@@ -136,8 +138,17 @@ left: var(--header-height);
     display: block;
     transition: 0.3s;
     text-decoration: none;
+    text-align: center;
 }
 
 .Analysis #left .sidebar .content .button:hover {
     color: var(--hover)
 }
+@media (max-width: 1130px)
+    {
+    .Analysis #left .sidebar .content .button 
+    {
+        font-size: 20px;
+        
+    }
+    }
