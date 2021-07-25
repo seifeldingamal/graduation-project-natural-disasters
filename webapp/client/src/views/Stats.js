@@ -116,34 +116,6 @@ class Stats extends Component {
                                     </select>
                                 </form>
                             </div>
-                            <div className={`sidebar ${rightOpen}`} >
-                                <div className='header'>
-                                    <h3 className='title'>
-                                    Filter Data
-                                    </h3>
-                                </div>
-                                <div className='content'>
-                                    <h3>Determine Period</h3>
-                                    <form className='form-input'>
-                                        <input type="radio" id="RD1" name="Period" value="last 30 Days"/>
-                                        <label htmlFor="RD1">last 30 Days</label><br/>
-                                        <input type="radio" id="RD2" name="Period" value="last 3 Months"/>
-                                        <label htmlFor="RD1">last 3 Months</label><br/>
-                                        <input type="radio" id="RD3" name="Period" value="last 3 Years"/>
-                                        <label htmlFor="RD1">last 3 Years</label><br/>
-                                    </form>
-                                    <br/>
-                                    <form className='form-select'>
-                                        <select id="Period">
-                                            <option>Select Specificly</option>
-                                            <option value="1980 - 1990">1980 - 1990</option>
-                                            <option value="1990 - 2000">1990 - 2000</option>
-                                            <option value="2000 - 2010">2000 - 2010</option>
-                                            <option value="2010 - 2020">2010 - 2020</option>
-                                        </select>
-                                    </form>
-                                </div>
-                            </div>
                         </div>                
                     </div>
                 </div>

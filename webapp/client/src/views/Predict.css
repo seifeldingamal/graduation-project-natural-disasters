@@ -1,4 +1,4 @@
-:root {
+    :root {
     --theme: #6C63FF;
     --hover: #4A46CB;
     --bg-main: #ffffff;
@@ -8,13 +8,13 @@
     --secs: 0.4s;
     }
     
-    #layout {
+    .Predict #layout {
     text-decoration: none;
     display: flex;
     overflow: hidden;
     }
     
-    #layout .header {
+    .Predict #layout .header {
         padding: 10px;
         background-color: var(--theme);
         position: relative;
@@ -22,7 +22,7 @@
         text-align: center;
         }
     
-    #layout .header .button {
+    .Predict #layout .header .button {
         line-height: 30px;
         font-size: 44px;
         font-family: Arabic Typesetting;
@@ -30,57 +30,57 @@
         text-decoration: none
     }
     
-    #layout .header .button:hover {
+    .Predict #layout .header .button:hover {
         color: rgb(228, 226, 226)
     }
     
-    #layout .header .title {
+    .Predict #layout .header .title {
     position: absolute;
     left: 0;
     right: 0;
     }
     
-    #layout .content {
+    .Predict #layout .content {
     overflow: auto;
     box-sizing: border-box;
     height: calc(100vh - var(--header-height));
     padding: 1rem;
     }
     
-    #main {
+    .Predict #main {
     background: var(--bg-main);
     flex-grow: 1;
     }
-    #main .header {
+    .Predict #main .header {
         background-color: var(--theme);
     }
     
     @media (orientation: landscape) {
-    #main .header .title {
+    .Predict #main .header .title {
         transition: left var(--secs), right var(--secs);
     }
     
-    #main .header .title.left-closed {
+    .Predict #main .header .title.left-closed {
         left: var(--header-height);
     }
     
-    #main .header .title.right-closed {
+    .Predict #main .header .title.right-closed {
         right: var(--header-height);
     }
     }
     
-    #left, #right {
+    .Predict #left, .Predict #right {
     transition: width var(--secs);
     width: 0;
     }
     
     @media (orientation: landscape) {
-    #left.open, #right.open {
+    .Predict #left.open, .Predict #right.open {
         width: calc(1% * var(--landscape-width));
     }
     }
     
-    #left .icon, #right .icon {
+    .Predict #left .icon, .Predict #right .icon {
         position: fixed;
         z-index: 10;
         width: var(--header-height);
@@ -92,91 +92,92 @@
         cursor: pointer;
     }
     
-    #left .sidebar .header, #right .sidebar .header {
+    .Predict #left .sidebar .header, .Predict #right .sidebar .header {
         font-size: 18px;
         line-height: var(--header-height);
         text-align: center;
     }
     
-    #left .sidebar, #right .sidebar {
+    .Predict #left .sidebar, .Predict #right .sidebar {
         transition: transform var(--secs);
     }
     
     @media (orientation: portrait) {
-    #left .sidebar, #right .sidebar {
+    .Predict #left .sidebar, .Predict #right .sidebar {
         width: var(--portrait-width);
     
     }
     }
     
     @media (orientation: landscape) {
-    #left .sidebar, #right .sidebar {
+    .Predict #left .sidebar, .Predict #right .sidebar {
         width: calc(1vw * var(--landscape-width));
     }
     }
     
-    #left .sidebar .header, #right .sidebar .header {
+    .Predict #left .sidebar .header, .Predict #right .sidebar .header {
     width: calc(100% - var(--header-height));
     }
     
-    #left {
+    .Predict #left {
     z-index: 5;
     }
     
-    #left .sidebar {
+    .Predict #left .sidebar {
     background: var(--theme);
     }
     
-    #left .sidebar.closed {
+    .Predict #left .sidebar.closed {
     transform: translateX(-100%);
     }
     
-    #left .sidebar .header {
+    .Predict #left .sidebar .header {
     left: var(--header-height);
     }
     
-    #left .sidebar .content .button {
+    .Predict #left .sidebar .content .button {
         padding: 8px 8px 8px 32px;
         font-size: 25px;
         color: var(--bg-main);
         display: block;
         transition: 0.3s;
         text-decoration: none;
+        text-align: center;
     }
     
-    #left .sidebar .content .button:hover {
+    .Predict #left .sidebar .content .button:hover {
         color: var(--hover)
     }
     
-    #right .icon {
+    .Predict #right .icon {
     right: 0;
     }
     
-    #right .sidebar {
+    .Predict #right .sidebar {
     background: var(--theme);
     }
     
     @media (orientation: portrait) {
-    #right .sidebar.open {
+    .Predict #right .sidebar.open {
         transform: translateX(-100%);
     }
     }
     
-    #right .sidebar .content h3
+    .Predict #right .sidebar .content h3
     {
         font-family: Arabic Typesetting;
         font-size: 34px;
         margin: -3px
     }
     
-    #right .sidebar .content .form-input
+    .Predict #right .sidebar .content .form-input
     {
         text-align: left;
         margin-top: 10px;
         margin-bottom: 25px;
     }
     
-    #right .sidebar .content .form-input input
+    .Predict #right .sidebar .content .form-input input
     {   
         margin-bottom: 25px;
         width: 20px;
@@ -185,25 +186,25 @@
         cursor: pointer
     }
     
-    #right .sidebar .content .form-input input:hover
+    .Predict #right .sidebar .content .form-input input:hover
     {
         background-color:var(--hover);
         color: var(--bg-main)
     }
     
-    #right .sidebar .content .form-input label
+    .Predict #right .sidebar .content .form-input label
     {
         font-family: Arabic Typesetting;
         font-size: 30px;
         line-height: 20px
     }
     
-    #right .sidebar .content .form-select
+    .Predict #right .sidebar .content .form-select
     {
         margin-top: 10px
     }
     
-    #right .sidebar .content .form-select select
+    .Predict #right .sidebar .content .form-select select
     {
         width: 150px;
         height: 30px;
@@ -215,4 +216,12 @@
         font-weight: bold;
         text-align-last: center;
         cursor: pointer
+    }
+    @media (max-width: 1130px)
+    {
+    .Predict #left .sidebar .content .button 
+    {
+        font-size: 20px;
+        
+    }
     }
