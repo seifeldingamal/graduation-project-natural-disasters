@@ -47,13 +47,11 @@ const createToken = (id) => {
 
 module.exports.logIn = async (req, res) => {
     try {
-        const user = await User.login({
-            username: req.body.username,
-            password: req.body.password
-        });
-        res.status(200).json({ 
-            user: user._id 
-        });
+        const {username, password} = req.body;
+        const user = await User.login(username, password);
+        const token = createToken(user._id);
+        res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
+        res.status(200).json({ user: user._id });
     } catch (err) {
         const errors = handleError(err);
         res.status(400).json({ errors })
@@ -63,7 +61,6 @@ module.exports.logIn = async (req, res) => {
 module.exports.SignUp = async (req, res) => {
     try {
         const user = new User({
-            name: req.body.name, 
             username: req.body.username, 
             email: req.body.email, 
             password: req.body.password
@@ -84,3 +81,8 @@ module.exports.SignUp = async (req, res) => {
 
     }
 }
+
+module.exports.LogOut = (req, res) => {
+    res.cookie('jwt', '', { maxAge: 1 });
+    res.redirect('/');
+  }

@@ -10,6 +10,7 @@ class UserCheck extends Component {
         username: '',
         email: '',
         password: '',
+        error:'',
     }
 
     handleChange = (e) => {
