@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import './UserCheck.css';
 import back from './images/backImg.jpg';
 import front from './images/signup.jpg';
@@ -95,14 +95,14 @@ class UserCheck extends Component {
                             <div className="front">
                                 <img src={back} alt=""/>
                                 <div className="text">
-                                    <span className="text-1">Every new friend is a <br/> new adventure</span>
+                                    <span className="text-1">Discover new information<br/>about Natural Disasters</span>
                                     <span className="text-2">Let's get connected</span>
                                 </div>
                             </div>
                             <div className="back">
                                 <img className="backImg" src={front} alt=""/>
                                 <div className="text">
-                                    <span className="text-1">Complete miles of journey <br/> with one step</span>
+                                    <span className="text-1">Find every statistic <br/> you need with one step</span>
                                     <span className="text-2">Let's get started</span>
                                 </div>
                             </div>
