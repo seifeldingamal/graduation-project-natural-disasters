@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './Stats.css'
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import MapComp from '../components/MapComp';
+import Dashboard from '../components/Dashboard';
 
 const axios = require('axios');
 
@@ -9,8 +10,11 @@ class Stats extends Component {
 
     state = {
         events: [],
+        displayData: [],
         leftOpen: false,
         rightOpen: false,
+        auth:true,
+        filter: '',
     }
 
     toggleSidebar = (event) => {
@@ -18,17 +22,58 @@ class Stats extends Component {
         this.setState({ [key]: !this.state[key] });
     }
 
+    handleChange = (e) => {
+        const { events } = this.state
+        const value = e.target.value;
+        this.setState({
+            filter: value
+        })
+        if (value === 'reset') {
+            this.setState({
+                displayData: events
+            })
+        } else {
+            const res = events.filter((event) => event.year === parseInt(value))
+
+            console.log(res);
+
+            this.setState({
+                displayData: res
+            })
+        }
+    }
+
     async componentDidMount() {
-        const res = await axios.get('http://localhost:5000/api/events')
-        const events = res.data;
-        this.setState({ events });
-        console.log(this.state.events);
+        //const auth = await axios.get('http://localhost:5000/auth/check')
+        //if(auth) {
+        //    this.setState({
+        //        auth: true
+        //    })
+            const res = await axios.get('http://localhost:5000/api/events')
+            const events = res.data;
+            this.setState({ 
+                events,
+                displayData: events,
+             });
+        //} else {
+        //    this.setState({
+        //        auth: true
+        //    })
+        //}
     };
 
     render() {
+
         let leftOpen = this.state.leftOpen ? 'open' : 'closed';
         let rightOpen = this.state.rightOpen ? 'open' : 'closed';
-        
+
+        let yearStart = 2000;
+        let yearEnd = 2021;
+        let years = Array(yearEnd-yearStart+1).fill().map(() => yearStart++);
+
+        if (!this.state.auth) {
+            return <Redirect to="/" />
+        }
         return (
             <div className="Stats">
                 <div id="layout1">
@@ -69,18 +114,19 @@ class Stats extends Component {
                         </div>
                         <div className="content1">
                             {this.state.events.length > 0?
-                            <MapComp events={this.state.events} />
+                            <MapComp events={this.state.displayData} />
                             : 'Data is loading'
                             }
-                            <div>
-                                <figure>
-                                    <img src="Graph_of_largest_earthquakes_1906-2005.png" alt="Circular Sector"/>
-                                    <figcaption>Graph of largest earthquakes at the period<br/>(1906-2005)</figcaption>
-                                </figure>
-                                <figure>
-                                    <img src="unnamed.gif" alt="Histogram"/>
-                                    <figcaption>Number of Earthquakes by Year</figcaption>
-                                </figure>
+                            <div style={{width: '100%', height: '80vh'}}>
+                                <h2>Dashboard</h2>
+                                <div>
+                                    <h3>Earthquakes Analysis</h3>
+                                    <Dashboard url={'https://public.tableau.com/views/earthquakeAnalysis/Dashboard1'} />
+                                </div>
+                                <div>
+                                    <h3>Earthquakes Damage Analysis</h3>
+                                    <Dashboard url={'https://public.tableau.com/views/earthquakeDamageAnalysis/Dashboard1'} />
+                                </div>
                             </div>
                         </div>
                     </div>        
@@ -97,22 +143,13 @@ class Stats extends Component {
                             </div>
                             <div className='content1'>
                                 <h3>Determine Period</h3>
-                                <form className='form-input'>
-                                    <input type="radio" id="RD1" name="Period" value="last 30 Days"/>
-                                    <label htmlFor="RD1">last 30 Days</label><br/>
-                                    <input type="radio" id="RD2" name="Period" value="last 3 Months"/>
-                                    <label htmlFor="RD1">last 3 Months</label><br/>
-                                    <input type="radio" id="RD3" name="Period" value="last 3 Years"/>
-                                    <label htmlFor="RD1">last 3 Years</label><br/>
-                                </form>
-                                <br/>
                                 <form className='form-select'>
-                                    <select id="Period">
+                                    <select id="Period" onChange={this.handleChange} value={this.state.filter} >
                                         <option>Select Specificly</option>
-                                        <option value="1980 - 1990">1980 - 1990</option>
-                                        <option value="1990 - 2000">1990 - 2000</option>
-                                        <option value="2000 - 2010">2000 - 2010</option>
-                                        <option value="2010 - 2020">2010 - 2020</option>
+                                        {years.map(item => (
+                                            <option key={item} value={item}>{item}</option>
+                                        ))}
+                                        <option key='reset' value="reset">Reset</option>
                                     </select>
                                 </form>
                             </div>

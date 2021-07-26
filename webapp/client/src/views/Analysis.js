@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Analysis.css';
 import JupyterViewer from 'react-jupyter-notebook';
-import nb from './nb.json';
+import nb from './data.json';
 class Analysis extends Component {
 
     state = {
