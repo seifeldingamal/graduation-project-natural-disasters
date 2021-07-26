@@ -135,6 +135,16 @@
     left: var(--header-height);
     }
     
+    .Predict #left .sidebar .content .current {
+        padding: 8px 8px 8px 32px;
+        font-size: 20px;
+        color: black;
+        display: block;
+        transition: 0.3s;
+        text-decoration: none;
+        text-align: center;
+    }
+
     .Predict #left .sidebar .content .button {
         padding: 8px 8px 8px 32px;
         font-size: 25px;

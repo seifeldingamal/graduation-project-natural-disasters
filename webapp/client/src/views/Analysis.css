@@ -38,6 +38,7 @@ overflow: hidden;
 .Analysis #layout .header .title {
 position: absolute;
 left: 0;
+right:0;
 }
 
 .Analysis #layout .content {
@@ -129,6 +130,16 @@ transform: translateX(-100%);
 
 .Analysis #left .sidebar .header {
 left: var(--header-height);
+}
+
+.Analysis #left .sidebar .content .current {
+    padding: 8px 8px 8px 32px;
+    font-size: 20px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+    text-decoration: none;
+    text-align: center;
 }
 
 .Analysis #left .sidebar .content .button {

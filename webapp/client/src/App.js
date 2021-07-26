@@ -10,10 +10,10 @@ const App = () => {
   return (
     <div className="App">
       <Route exact path='/' render={() => (
-        <Home />
-      )} />
-      <Route path='/usercheck' render={() => (
         <UserCheck />
+      )} />
+      <Route path='/home' render={() => (
+        <Home />
       )} />
       <Route path='/stats' render={() => (
         <Stats />

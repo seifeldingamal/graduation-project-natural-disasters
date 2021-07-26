@@ -32,6 +32,7 @@ class UserCheck extends Component {
             emailError: '',
             usernameError2:'',
             passwordError2:'',
+            redirect: false,
         })
 
         if(e.nativeEvent.submitter.name === 'Login') {
@@ -43,7 +44,6 @@ class UserCheck extends Component {
                 });
 
                 this.setState({
-                    path: '/',
                     redirect: true
                 })
 
@@ -84,7 +84,7 @@ class UserCheck extends Component {
 
     render() {
         if (this.state.redirect) {
-            return <Redirect to="/" />
+            return <Redirect to="/home" />
         }
         return (
             <div className='UserCheck'>
@@ -154,10 +154,6 @@ class UserCheck extends Component {
                                 </div>
                             </div>
                         </form>
-                        <Link 
-                            to='/'
-                            className='button'
-                        >Back</Link>
                     </div>
                 </div>    
             </div>

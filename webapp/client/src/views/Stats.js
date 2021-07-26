@@ -89,20 +89,23 @@ class Stats extends Component {
                                 </h3>
                             </div>
                             <div className='content1'>
-                                    <Link 
-                                        to='/predict'
-                                        className='button1'
-                                    ><h5>Predict Future<br/>Shockwave Radius</h5></Link>                
-                                    <Link 
-                                        to='/analysis'
-                                        className='button1'
-                                    ><h5>Analysis<br/>Process</h5></Link>
+                                <h5 
+                                    className='current'
+                                >View Disasters<br/>And<br/>Their Statistics</h5>
+                                <Link 
+                                    to='/predict'
+                                    className='button1'
+                                ><h5>Predict Future<br/>Shockwave Radius</h5></Link>                
+                                <Link 
+                                    to='/analysis'
+                                    className='button1'
+                                ><h5>Analysis<br/>Process</h5></Link>
                             </div>
                         </div>
                     </div>
                     <div id='main1'>
                         <div className="header1">
-                            <Link to='/'className='button1'>
+                            <Link to='/home'className='button1'>
                                 <h3 className={`
                                     title1
                                     ${'left-' + leftOpen}

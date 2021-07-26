@@ -143,6 +143,16 @@ transform: translateX(-100%);
 left: var(--header-height);
 }
 
+.Stats #left .sidebar .content1 .current {
+    padding: 8px 8px 8px 32px;
+    font-size: 20px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+    text-decoration: none;
+    text-align: center;
+}
+
 .Stats #left .sidebar .content1 .button1 {
     padding: 8px 8px 8px 32px;
     font-size: 25px;

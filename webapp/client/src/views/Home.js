@@ -28,10 +28,6 @@ class Home extends Component {
                                     to='/analysis'
                                     className='button'
                                 ><h5>Analysis Process</h5></Link>
-                                <Link 
-                                    to='/usercheck'
-                                    className='button'
-                                >UserCheck</Link>
                         
                             <b>Welcome to our system</b>
                             <p>

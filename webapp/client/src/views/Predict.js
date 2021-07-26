@@ -44,7 +44,10 @@ class Predict extends Component {
                                     <Link 
                                         to='/stats'
                                         className='button'
-                                    ><h5>View Disasters<br/>And<br/>Their Statistics</h5></Link>                
+                                    ><h5>View Disasters<br/>And<br/>Their Statistics</h5></Link> 
+                                    <h5 
+                                        className='current'
+                                    >Predict Future<br/>Shockwave Radius</h5>              
                                     <Link 
                                         to='/analysis'
                                         className='button'
@@ -55,7 +58,7 @@ class Predict extends Component {
                     <div id='main'>
                         <div className="header">
                             <Link 
-                                to='/'
+                                to='/home'
                                 className='button'
                             >
                                 <h3 className={`

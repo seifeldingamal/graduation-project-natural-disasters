@@ -40,13 +40,16 @@ class Analysis extends Component {
                                         to='/predict'
                                         className='button'
                                     ><h5>Predict Future<br/>Shockwave Radius</h5></Link>
+                                    <h5 
+                                        className='current'
+                                    >Analysis<br/>Process</h5>
                             </div>
                         </div>
                     </div>
                     <div id='main'>
                         <div className="header">
                             <Link 
-                                to='/'
+                                to='/home'
                                 className='button'
                             >
                                 <h3 className={`
