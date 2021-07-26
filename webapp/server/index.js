@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser'); 
+const path = require('path');
 
 mongoose
     .connect('mongodb+srv://admin:admin@main.llv7l.mongodb.net/NaturalApp?retryWrites=true&w=majority', { 
@@ -17,21 +18,21 @@ mongoose
         app.use(cors());
         app.use(cookieParser())
 
-        app.get('/', (req, res) => {
-            res.json({ message: 'Welcome to our application' });
-        });
-
         const events = require('./routes/api/events');
 
-        app.use('/api/events', events);
-
-        const users = require('./routes/api/users');
-
-        app.use('/api/users', users);
+        app.use('/apis/events', events);
 
         const auth = require('./routes/authUser');
 
         app.use('/auth', auth);
+
+        if (process.env.NODE_ENV === 'production') {
+            app.use(express.static('client/build'));
+
+            app.get('*', (req,res) => {
+                res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+            })
+        } 
 
         const port = process.env.PORT || 5000;
 

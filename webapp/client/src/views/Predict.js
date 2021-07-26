@@ -3,6 +3,7 @@ import './Predict.css'
 import { Link } from 'react-router-dom';
 import MapComp from '../components/MapComp';
 
+const config = require('./config');
 const axios = require('axios');
 
 class Predict extends Component {
@@ -17,7 +18,7 @@ class Predict extends Component {
     }
 
     async componentDidMount() {
-        const res = await axios.get('http://localhost:5000/api/events')
+        const res = await axios.get('/apis/events')
         const events = res.data;
         this.setState({ events });
         console.log(this.state.events);
@@ -71,7 +72,7 @@ class Predict extends Component {
                         </div>
                         <div className="content">
                             {this.state.events.length > 0?
-                            <MapComp events={this.state.events} />
+                            <MapComp events={this.state.events} url={config.API2}/>
                             : 'Data is loading'
                             }
                         </div>

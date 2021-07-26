@@ -2,7 +2,6 @@ import React from 'react';
 import { useState } from 'react';
 import { MapContainer, TileLayer, CircleMarker, Popup } from 'react-leaflet';
 import Legend from './Legend';
-const config = require('./config');
 
 const MapComp = (props) => {
 
@@ -17,7 +16,7 @@ const MapComp = (props) => {
             >
                 <TileLayer 
                     attribution='Map data &copy; <a href=&quot;https://www.openstreetmap.org/&quot;>OpenStreetMap</a> contributors, <a href=&quot;https://creativecommons.org/licenses/by-sa/2.0/&quot;>CC-BY-SA</a>, Imagery &copy; <a href=&quot;https://www.mapbox.com/&quot;>Mapbox</a>'
-                    url={config.API}
+                    url={props.url}
                 />
                 {
                     props.events.map(event => {

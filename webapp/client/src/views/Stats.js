@@ -3,6 +3,7 @@ import './Stats.css'
 import { Link, Redirect } from 'react-router-dom';
 import MapComp from '../components/MapComp';
 import Dashboard from '../components/Dashboard';
+const config = require('./config');
 
 const axios = require('axios');
 
@@ -49,7 +50,7 @@ class Stats extends Component {
         //    this.setState({
         //        auth: true
         //    })
-            const res = await axios.get('http://localhost:5000/api/events')
+            const res = await axios.get('/apis/events')
             const events = res.data;
             this.setState({ 
                 events,
@@ -117,7 +118,7 @@ class Stats extends Component {
                         </div>
                         <div className="content1">
                             {this.state.events.length > 0?
-                            <MapComp events={this.state.displayData} />
+                            <MapComp events={this.state.displayData} url={config.API} />
                             : 'Data is loading'
                             }
                             <div style={{width: '100%', height: '80vh'}}>

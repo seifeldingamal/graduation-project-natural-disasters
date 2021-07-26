@@ -38,7 +38,7 @@ class UserCheck extends Component {
         if(e.nativeEvent.submitter.name === 'Login') {
             try {
                 
-                await axios.post('http://localhost:5000/auth/login', {
+                await axios.post('/auth/login', {
                     username: this.state.username,
                     password: this.state.password,
                 });
@@ -61,7 +61,7 @@ class UserCheck extends Component {
         if(e.nativeEvent.submitter.name === 'SignUp') {
             try {
                 
-                await axios.post('http://localhost:5000/auth/signup', {
+                await axios.post('/auth/signup', {
                     username: this.state.username,
                     email: this.state.email,
                     password: this.state.password,
