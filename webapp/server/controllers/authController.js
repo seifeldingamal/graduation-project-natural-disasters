@@ -77,7 +77,6 @@ module.exports.SignUp = async (req, res) => {
         })
         res.status(201).json({
             user: result._id,
-            token: token
         });
 
     } catch (err) {

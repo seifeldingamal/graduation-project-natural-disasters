@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './Analysis.css';
 import JupyterViewer from 'react-jupyter-notebook';
 import nb from './data.json';
+import axios from 'axios';
+
 class Analysis extends Component {
 
     state = {
         leftOpen: false,
+        auth: false,
     }
 
     toggleSidebar = (event) => {
@@ -14,9 +17,33 @@ class Analysis extends Component {
         this.setState({ [key]: !this.state[key] });
     }
 
+    async componentDidMount() {
+        const auth = await axios.get('http://localhost:5000/auth/check')
+        if(auth) {
+            this.setState({
+                auth: true
+            })
+        } else {
+            this.setState({
+                auth: false
+            })
+        }
+    };
+
+    async logout(){
+        await axios.get('/auth/logout');
+        this.setState({
+            auth: false
+        })
+    }
+
     render() {
         let leftOpen = this.state.leftOpen ? 'open' : 'closed';
         
+        if (!this.state.auth) {
+            return <Redirect to="/" />
+        }
+
         return (
             <div className='Analysis'>
                 <div id="layout">
@@ -43,6 +70,10 @@ class Analysis extends Component {
                                     <h5 
                                         className='current'
                                     >Analysis<br/>Process</h5>
+                                    <h5     
+                                        onClick={this.logout}
+                                        className='button'
+                                    >Sign Out</h5>
                             </div>
                         </div>
                     </div>

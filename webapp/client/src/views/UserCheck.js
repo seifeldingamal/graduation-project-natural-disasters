@@ -84,7 +84,7 @@ class UserCheck extends Component {
 
     render() {
         if (this.state.redirect) {
-            return <Redirect to="/home" />
+            return <Redirect to="/" />
         }
         return (
             <div className='UserCheck'>

@@ -14,12 +14,12 @@ class Stats extends Component {
         displayData: [],
         leftOpen: false,
         rightOpen: false,
-        auth:true,
+        auth: false,
         filter: '',
     }
 
-    toggleSidebar = (event) => {
-        let key = `${event.currentTarget.parentNode.id}Open`;
+    toggleSidebar = (e) => {
+        let key = `${e.currentTarget.parentNode.id}Open`;
         this.setState({ [key]: !this.state[key] });
     }
 
@@ -45,23 +45,30 @@ class Stats extends Component {
     }
 
     async componentDidMount() {
-        //const auth = await axios.get('http://localhost:5000/auth/check')
-        //if(auth) {
-        //    this.setState({
-        //        auth: true
-        //    })
+        const auth = await axios.get('http://localhost:5000/auth/check')
+        if(auth) {
+            this.setState({
+                auth: true
+            })
             const res = await axios.get('/apis/events')
             const events = res.data;
             this.setState({ 
                 events,
                 displayData: events,
              });
-        //} else {
-        //    this.setState({
-        //        auth: true
-        //    })
-        //}
+        } else {
+            this.setState({
+                auth: false
+            })
+        }
     };
+
+    async logout(){
+        await axios.get('/auth/logout');
+        this.setState({
+            auth: false
+        })
+    }
 
     render() {
 
@@ -75,6 +82,7 @@ class Stats extends Component {
         if (!this.state.auth) {
             return <Redirect to="/" />
         }
+        
         return (
             <div className="Stats">
                 <div id="layout1">
@@ -96,17 +104,23 @@ class Stats extends Component {
                                 <Link 
                                     to='/predict'
                                     className='button1'
-                                ><h5>Predict Future<br/>Shockwave Radius</h5></Link>                
+                                ><h5>Predict Future<br/>Shockwave Radius</h5>
+                                </Link>                
                                 <Link 
                                     to='/analysis'
                                     className='button1'
-                                ><h5>Analysis<br/>Process</h5></Link>
+                                ><h5>Analysis<br/>Process</h5>
+                                </Link>
+                                <h5     
+                                    onClick={this.logout}
+                                    className='button'
+                                >Sign Out</h5>
                             </div>
                         </div>
                     </div>
                     <div id='main1'>
                         <div className="header1">
-                            <Link to='/home'className='button1'>
+                            <Link to='/'className='button1'>
                                 <h3 className={`
                                     title1
                                     ${'left-' + leftOpen}

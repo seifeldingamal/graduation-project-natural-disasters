@@ -9,10 +9,10 @@ import Analysis from './views/Analysis';
 const App = () => {
   return (
     <div className="App">
-      <Route exact path='/' render={() => (
+      <Route path='/usercheck' render={() => (
         <UserCheck />
       )} />
-      <Route path='/home' render={() => (
+      <Route exact path='/' render={() => (
         <Home />
       )} />
       <Route path='/stats' render={() => (

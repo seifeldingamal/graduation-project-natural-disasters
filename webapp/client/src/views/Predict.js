@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Predict.css'
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import MapComp from '../components/MapComp';
 
 const config = require('./config');
@@ -10,6 +10,7 @@ class Predict extends Component {
     state = {
         events: [],
         leftOpen: false,
+        auth: false,
     }
 
     toggleSidebar = (event) => {
@@ -18,16 +19,37 @@ class Predict extends Component {
     }
 
     async componentDidMount() {
-        const res = await axios.get('/apis/events')
-        const events = res.data;
-        this.setState({ events });
-        console.log(this.state.events);
+        const auth = await axios.get('http://localhost:5000/auth/check')
+        if(auth) {
+            this.setState({
+                auth: true
+            })
+            const res = await axios.get('/apis/events')
+            const events = res.data;
+            this.setState({ events });
+        } else {
+            this.setState({
+                auth: false
+            })
+        }
     };
+
+    logout = () => {
+        axios.get('/auth/logout');
+        this.setState({
+            auth: false
+        })
+    }
 
     render() {
         let leftOpen = this.state.leftOpen ? 'open' : 'closed';
 
+        if (!this.state.auth) {
+            return <Redirect to="/" />
+        }
+
         return (
+            
             <div className='Predict'>
                 <div id="layout">
                     <div id='left' className={leftOpen} >
@@ -45,21 +67,27 @@ class Predict extends Component {
                                     <Link 
                                         to='/stats'
                                         className='button'
-                                    ><h5>View Disasters<br/>And<br/>Their Statistics</h5></Link> 
+                                    ><h5>View Disasters<br/>And<br/>Their Statistics</h5>
+                                    </Link> 
                                     <h5 
                                         className='current'
                                     >Predict Future<br/>Shockwave Radius</h5>              
                                     <Link 
                                         to='/analysis'
                                         className='button'
-                                    ><h5>Analysis<br/>Process</h5></Link>
+                                    ><h5>Analysis<br/>Process</h5>
+                                    </Link>
+                                    <h5     
+                                        onClick={this.logout}
+                                        className='button'
+                                    >Sign Out</h5>
                             </div>
                         </div>
                     </div>
                     <div id='main'>
                         <div className="header">
                             <Link 
-                                to='/home'
+                                to='/'
                                 className='button'
                             >
                                 <h3 className={`
