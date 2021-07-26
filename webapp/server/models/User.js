@@ -39,7 +39,7 @@ schema.statics.login = async function(username, password) {
 	  }
 	  throw Error('incorrect password');
 	}
-	throw Error('incorrect email');
+	throw Error('incorrect username');
   };
 
 module.exports = mongoose.model('User', schema);

@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const config = require('../config/authuser.config');
 
-const requireAuth = (req, res, next) => {
+const requireAuth = (req, res) => {
     const token = req.cookies.jwt;
 
     // check if jsonWebToken exists
@@ -9,14 +9,20 @@ const requireAuth = (req, res, next) => {
         jwt.verify(token, config.secret, (err, decodedToken) => {
             if (err) {
                 console.log(err.message);
-                next('/login')
+                res.json({
+                  auth: false
+                })
             } else {
                 console.log(decodedToken)
-                next();
+                res.json({
+                  auth: true
+                })
             }
         })
     } else {
-        next('/login')
+      res.json({
+        auth: false
+      })
     }
 };
 

@@ -7,13 +7,13 @@ function handleError(err) {
     let errors = { username: '', email: '', password: '' };
 
     // incorrect username
-    if (err.message === 'Incorrect username!') {
+    if (err.message === 'incorrect username') {
         errors.username = 'Username is not registered!';
         return errors;
     }
 
     // incorrect password
-    if (err.message === 'Incorrect password!') {
+    if (err.message === 'incorrect password') {
         errors.password = 'Incorrect password!';
         return errors;
     }
@@ -89,5 +89,7 @@ module.exports.SignUp = async (req, res) => {
 
 module.exports.LogOut = (req, res) => {
     res.cookie('jwt', '', { maxAge: 1 });
-    res.redirect('/usercheck');
-  }
+    res.json({
+        auth: false
+    })
+}

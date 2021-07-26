@@ -13,8 +13,8 @@ class UserCheck extends Component {
         usernameError:'',
         emailError:'',
         passwordError:'',
-        path: '',
-        redirect: false,
+        usernameError2:'',
+        passwordError2:'',
     }
 
     handleChange = (e) => {
@@ -30,64 +30,54 @@ class UserCheck extends Component {
             usernameError: '',
             passwordError: '',
             emailError: '',
+            usernameError2:'',
+            passwordError2:'',
         })
 
         if(e.nativeEvent.submitter.name === 'Login') {
             try {
-                const res = await axios.post('http://localhost:5000/auth/login', {
+                
+                await axios.post('http://localhost:5000/auth/login', {
                     username: this.state.username,
                     password: this.state.password,
                 });
 
-                const data = res.data;
-
-                if (data.errors) {
-                    this.setState({
-                        usernameError: data.errors.username,
-                        passwordError: data.errors.password,
-                        emailError: data.errors.email,
-                    })
-                }
-
-                if (data.user) {
-                    this.setState({
-                        path: '/',
-                        redirect: true
-                    })
-                }
+                this.setState({
+                    path: '/',
+                    redirect: true
+                })
 
             } catch (error) {
-                console.log(error);
+
+                console.log(error.response);
+                this.setState({
+                    usernameError: error.response.data.errors.username,
+                    passwordError: error.response.data.errors.password,
+                    emailError: error.response.data.errors.email,
+                })
             }
         }
 
         if(e.nativeEvent.submitter.name === 'SignUp') {
             try {
-                const res = await axios.post('http://localhost:5000/auth/signup', {
+                
+                await axios.post('http://localhost:5000/auth/signup', {
                     username: this.state.username,
                     email: this.state.email,
                     password: this.state.password,
                 });
 
-                const data = res.data;
-
-                if (data.errors) {
-                    this.setState({
-                        usernameError: data.errors.username,
-                        passwordError: data.errors.password,
-                        emailError: data.errors.email,
-                    })
-                }
-
-                if (data.user) {
-                    this.setState({
-                        path: '/usercheck',
-                        redirect: true
-                    })
-                }
+                this.setState({
+                    redirect: true
+                })
 
             } catch (error) {
-                console.log(error);
+                console.log(error.response);
+                this.setState({
+                    usernameError2: error.response.data.errors.username,
+                    passwordError2: error.response.data.errors.password,
+                    emailError: error.response.data.errors.email,
+                })
             }
         }
     }
@@ -125,12 +115,12 @@ class UserCheck extends Component {
                                         <div className="input-box">
                                             <i className="fas fa-envelope"></i>
                                             <input type="text" placeholder="Username" onChange={this.handleChange} value={this.state.username} name="username" />
-                                            <div className="login-username error" value={this.state.usernameError} ></div>
+                                            <div className="login-username error">{this.state.usernameError}</div>
                                         </div>
                                         <div className="input-box">
                                             <i className="fas fa-lock"></i>
                                             <input type="password" placeholder="Password" onChange={this.handleChange} value={this.state.password} name="password" />
-                                            <div className="login-password error"></div>
+                                            <div className="login-password error">{this.state.passwordError}</div>
                                         </div>
                                         <div className="button input-box">
                                             <input type="submit" value="Login" name="Login"/>
@@ -144,17 +134,17 @@ class UserCheck extends Component {
                                         <div className="input-box">
                                             <i className="fas fa-user"></i>
                                             <input type="text" placeholder="UserName" onChange={this.handleChange} value={this.state.username} name="username" />
-                                            <div className="signup-username error"></div>
+                                            <div className="signup-username error">{this.state.usernameError2}</div>
                                         </div>
                                         <div className="input-box">
                                             <i className="fas fa-envelope"></i>
                                             <input type="text" placeholder="Email" onChange={this.handleChange} value={this.state.email} name="email" />
-                                            <div className="signup-email error"></div>
+                                            <div className="signup-email error">{this.state.emailError}</div>
                                         </div>
                                         <div className="input-box">
                                             <i className="fas fa-lock"></i>
                                             <input type="password" placeholder="Password" onChange={this.handleChange} value={this.state.password} name="password" />
-                                            <div className="signup-password error"></div>
+                                            <div className="signup-password error">{this.state.passwordError2}</div>
                                         </div>
                                         <div className="button input-box">
                                             <input type="submit" value="Sign Up" name="SignUp" />
