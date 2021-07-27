@@ -150,6 +150,7 @@ left: var(--header-height);
     transition: 0.3s;
     text-decoration: none;
     text-align: center;
+    cursor: pointer;
 }
 
 .Analysis #left .sidebar .content .button:hover {

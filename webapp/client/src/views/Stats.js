@@ -14,7 +14,7 @@ class Stats extends Component {
         displayData: [],
         leftOpen: false,
         rightOpen: false,
-        auth: false,
+        auth: true,
         filter: '',
     }
 
@@ -36,8 +36,6 @@ class Stats extends Component {
         } else {
             const res = events.filter((event) => event.year === parseInt(value))
 
-            console.log(res);
-
             this.setState({
                 displayData: res
             })
@@ -45,26 +43,23 @@ class Stats extends Component {
     }
 
     async componentDidMount() {
-        const auth = await axios.get('http://localhost:5000/auth/check')
-        if(auth) {
-            this.setState({
-                auth: true
-            })
+
+        const res = await axios.get('/auth/check')
+        this.setState({
+            auth: res.data.auth
+        });
+        if(res.data.auth) {
             const res = await axios.get('/apis/events')
             const events = res.data;
             this.setState({ 
                 events,
                 displayData: events,
-             });
-        } else {
-            this.setState({
-                auth: false
-            })
+            });
         }
     };
 
-    async logout(){
-        await axios.get('/auth/logout');
+    logout = () => {
+        axios.get('/auth/logout');
         this.setState({
             auth: false
         })
@@ -79,8 +74,8 @@ class Stats extends Component {
         let yearEnd = 2021;
         let years = Array(yearEnd-yearStart+1).fill().map(() => yearStart++);
 
-        if (!this.state.auth) {
-            return <Redirect to="/" />
+        if (this.state.auth === false) {
+            return <Redirect to="/usercheck" />
         }
         
         return (
@@ -113,7 +108,7 @@ class Stats extends Component {
                                 </Link>
                                 <h5     
                                     onClick={this.logout}
-                                    className='button'
+                                    className='button1'
                                 >Sign Out</h5>
                             </div>
                         </div>

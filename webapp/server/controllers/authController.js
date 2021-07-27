@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const config = require('../config/authuser.config');
 
 function handleError(err) {
-    console.log(err.message, err.code);
+    //console.log(err.message, err.code);
     let errors = { username: '', email: '', password: '' };
 
     // incorrect username
@@ -54,7 +54,6 @@ module.exports.logIn = async (req, res) => {
         res.cookie('jwt', token, { httpOnly: true, maxAge: 3*24*60*60*1000 });
         res.status(200).json({ 
             user: user._id,
-            token: token
         });
     } catch (err) {
         const errors = handleError(err);
@@ -67,14 +66,11 @@ module.exports.SignUp = async (req, res) => {
         const user = new User({
             username: req.body.username, 
             email: req.body.email, 
-            password: req.body.password
+            password: req.body.password,
         });
         const result = await user.save();
         const token = createToken(result._id);
-        res.cookie('jwt', token, { 
-            httpOnly: true, 
-            maxAge: 3*24*60*60*1000
-        })
+        res.cookie('jwt', token, { httpOnly: true, maxAge: 3*24*60*60*1000 });
         res.status(201).json({
             user: result._id,
         });
@@ -90,5 +86,5 @@ module.exports.LogOut = (req, res) => {
     res.cookie('jwt', '', { maxAge: 1 });
     res.json({
         auth: false
-    })
+    });
 }

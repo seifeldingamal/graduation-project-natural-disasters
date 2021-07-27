@@ -9,7 +9,7 @@ class Analysis extends Component {
 
     state = {
         leftOpen: false,
-        auth: false,
+        auth: true,
     }
 
     toggleSidebar = (event) => {
@@ -18,20 +18,14 @@ class Analysis extends Component {
     }
 
     async componentDidMount() {
-        const auth = await axios.get('http://localhost:5000/auth/check')
-        if(auth) {
-            this.setState({
-                auth: true
-            })
-        } else {
-            this.setState({
-                auth: false
-            })
-        }
+        const res = await axios.get('/auth/check')
+        this.setState({
+            auth: res.data.auth
+        })
     };
 
-    async logout(){
-        await axios.get('/auth/logout');
+    logout = () => {
+        axios.get('/auth/logout');
         this.setState({
             auth: false
         })
@@ -40,8 +34,8 @@ class Analysis extends Component {
     render() {
         let leftOpen = this.state.leftOpen ? 'open' : 'closed';
         
-        if (!this.state.auth) {
-            return <Redirect to="/" />
+        if (this.state.auth === false) {
+            return <Redirect to="/usercheck" />
         }
 
         return (
@@ -80,7 +74,7 @@ class Analysis extends Component {
                     <div id='main'>
                         <div className="header">
                             <Link 
-                                to='/home'
+                                to='/'
                                 className='button'
                             >
                                 <h3 className={`

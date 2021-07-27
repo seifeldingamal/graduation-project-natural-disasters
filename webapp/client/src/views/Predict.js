@@ -10,7 +10,7 @@ class Predict extends Component {
     state = {
         events: [],
         leftOpen: false,
-        auth: false,
+        auth: true,
     }
 
     toggleSidebar = (event) => {
@@ -19,18 +19,18 @@ class Predict extends Component {
     }
 
     async componentDidMount() {
-        const auth = await axios.get('http://localhost:5000/auth/check')
-        if(auth) {
-            this.setState({
-                auth: true
-            })
+
+        const res = await axios.get('/auth/check')
+        this.setState({
+            auth: res.data.auth
+        });
+
+        if(res.data.auth) {
             const res = await axios.get('/apis/events')
             const events = res.data;
-            this.setState({ events });
-        } else {
-            this.setState({
-                auth: false
-            })
+            this.setState({ 
+                events,
+            });
         }
     };
 
@@ -44,8 +44,8 @@ class Predict extends Component {
     render() {
         let leftOpen = this.state.leftOpen ? 'open' : 'closed';
 
-        if (!this.state.auth) {
-            return <Redirect to="/" />
+        if (this.state.auth === false) {
+            return <Redirect to="/usercheck" />
         }
 
         return (

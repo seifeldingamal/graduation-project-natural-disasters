@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './UserCheck.css';
 import back from './images/backImg.jpg';
 import front from './images/signup.jpg';
@@ -49,7 +49,6 @@ class UserCheck extends Component {
 
             } catch (error) {
 
-                console.log(error.response);
                 this.setState({
                     usernameError: error.response.data.errors.username,
                     passwordError: error.response.data.errors.password,
@@ -72,7 +71,7 @@ class UserCheck extends Component {
                 })
 
             } catch (error) {
-                console.log(error.response);
+
                 this.setState({
                     usernameError2: error.response.data.errors.username,
                     passwordError2: error.response.data.errors.password,
@@ -110,6 +109,12 @@ class UserCheck extends Component {
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-content">
                                 <div className="login-form">
+                                    <Link 
+                                        to='/'
+                                        className='title'
+                                        style={{textDecoration: 'none', fontSize: '30px'}}
+                                        ><h3>Home</h3>
+                                    </Link>
                                     <div className="title">Login</div>
                                     <div className="input-boxes">
                                         <div className="input-box">
@@ -129,6 +134,12 @@ class UserCheck extends Component {
                                     </div>
                                 </div>
                                 <div className="signup-form">
+                                    <Link 
+                                        to='/'
+                                        className='title'
+                                        style={{textDecoration: 'none', fontSize: '30px'}}
+                                        ><h3>Home</h3>
+                                    </Link>
                                     <div className="title">Signup</div>
                                     <div className="input-boxes">
                                         <div className="input-box">

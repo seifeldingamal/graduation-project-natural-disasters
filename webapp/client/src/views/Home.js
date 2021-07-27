@@ -7,25 +7,21 @@ import axios from 'axios';
 class Home extends Component {
 
     state = {
-        user: null,
+        auth: false,
     }
 
     async componentDidMount() {
-        const user = localStorage.getItem('user');
+        const res = await axios.get('/auth/check')
 
-        if (user) {
-            this.setState({user})
-        } else {
-            this.setState({
-                user: null
-            })
-        }
-    }
-
-    async logout(){
-        await axios.get('/auth/logout');
         this.setState({
-            user: null
+            auth: res.data.auth
+        });
+    };
+
+    logout = () => {
+        axios.get('/auth/logout');
+        this.setState({
+            auth: false
         })
     }
 
@@ -53,7 +49,7 @@ class Home extends Component {
                                     to='/analysis'
                                     className='button'
                                 ><h5>Analysis Process</h5></Link>
-                                {!this.state.user?
+                                {this.state.auth === false ?
                                     <Link 
                                         to='/usercheck'
                                         className='button'
