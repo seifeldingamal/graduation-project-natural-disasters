@@ -8,6 +8,6 @@
 - Frontend was first static web components then converted to React.js.
 
 
-# Project Documentation and Thesis [Here](Graduation Project Documentation.pdf)
+# Project Documentation and Thesis [Here](/Graduation%20Project%20Documentation.pdf)
 
-# Project Presentation [Here](Graduation Project Presentation.pptx)
+# Project Presentation [Here](/Graduation%20Project%20Presentation.pptx)
