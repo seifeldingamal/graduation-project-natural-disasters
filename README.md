@@ -10,4 +10,4 @@
 
 # Project Documentation and Thesis [Here](/Graduation%20Project%20Documentation.pdf)
 
-# Project Presentation [Here](/Graduation%20Project%20Presentation.pptx)
+# Project Presentation [Here](/Graduation%20Project%20Presentation.pdf)
